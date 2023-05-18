@@ -1,0 +1,25 @@
+{
+  "name": "seleniumjs",
+  "version": "1.0.0",
+  "description": "Playing with selenium and JS to level up my skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./testFramework/tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasLaslopSk/seleniumJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomasLaslopSk/seleniumJS/issues"
+  },
+  "homepage": "https://github.com/TomasLaslopSk/seleniumJS#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.9.2"
+  }
+}
