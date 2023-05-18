@@ -1,31 +1,26 @@
 const { By } = require('selenium-webdriver');
-const seleniumactions = require('../utils/seleniumActions');
+const BasePage = require('./basePage');
 
-class TodoPage {
-
-    newTodoInputField = By.className('new-todo')
-    todoListElement = By.css('.todo-list li')
-    destroyButtonForTodoListElement = By.className('destroy')
+class TodoPage extends BasePage {
 
     constructor(driver) {
-        this.seleniumactions = new seleniumactions(driver);
-    }
+        super(driver, "https://todomvc.com/examples/vanillajs/");
+        this.newTodoInputField = By.className('new-todo')
+        this.todoListElement = By.css('.todo-list li')
+        this.destroyButtonForTodoListElement = By.className('destroy')
 
-    async loadTodoPage() {
-        const url = 'https://todomvc.com/examples/vanillajs/'
-        await this.seleniumactions.loadUrl(url)
     }
 
     async addTodoListItem(text) {
-        await this.seleniumactions.enterTextAndPressEnterKey(this.newTodoInputField, text)
+        await this.enterTextAndPressEnterKey(this.newTodoInputField, text)
     }
 
     async hoverTodoListItem() {
-        await this.seleniumactions.hoverOnElement(this.todoListElement, 2000)
+        await this.hoverOnElement(this.todoListElement, 2000)
     }
 
     async deleteTodoListItem() {
-        await this.seleniumactions.pressElement(this.destroyButtonForTodoListElement)
+        await this.pressElement(this.destroyButtonForTodoListElement)
     }
 }
 

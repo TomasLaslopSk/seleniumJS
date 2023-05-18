@@ -1,19 +1,17 @@
 const expect = require('chai').expect;
 const TodoPage = require('../pages/todoPage');
 const {Builder, Browser, By, Key} = require('selenium-webdriver');
+const { Driver } = require("./baseTest")
+const Url = require("../utils/url")
 
 
-describe('First test set', function() {
-    this.timeout(25000);
-    let driver;
-    let todoPage;
+describe('First test set', async function() {
+    let driver = await Driver.init()
+    let urlBuilder = new Url(driver)
+    let todoPage = new TodoPage(driver).withUrl(urlBuilder.load())
 
     this.beforeEach(async function() {
-        driver = await new Builder().forBrowser(Browser.CHROME).build();
-        todoPage = new TodoPage(driver);
-
-        // Open website
-        todoPage.loadTodoPage()
+        await todoPage.url.load()
     })
 
     it('First test in First test set', async function() {
